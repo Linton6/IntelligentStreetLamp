@@ -8,6 +8,7 @@
 
 package io.renren;
 
+import io.renren.modules.lamp.communication.Server;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
@@ -17,6 +18,9 @@ public class AdminApplication {
 
 	public static void main(String[] args) {
 		SpringApplication.run(AdminApplication.class, args);
+		System.out.println("1234567890");
+		Server server = new Server();
+		server.handler();
 	}
 
 }
