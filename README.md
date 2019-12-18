@@ -154,5 +154,3 @@ renren-security
 ![输入图片说明](http://cdn.renren.io/img/5d8e7243d30a4421b90f15394b6d1ccd "在这里输入图片标题")
 
 <br>
-
-![捐赠](http://cdn.renren.io/donate.jpg "捐赠") 

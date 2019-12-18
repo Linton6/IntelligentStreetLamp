@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+		<#include "/header.html">
+</head>
+<body>
+<div id="rrapp" v-cloak>
+    <div v-show="showList">
+        <div class="grid-btn">
+			<#if shiro.hasPermission("lamp:lamp:save")>
+            <a class="btn btn-primary" @click="add"><i class="fa fa-plus"></i>&nbsp;新增</a>
+			</#if>
+			<#if shiro.hasPermission("lamp:lamp:update")>
+            <a class="btn btn-primary" @click="update"><i class="fa fa-pencil-square-o"></i>&nbsp;修改</a>
+			</#if>
+			<#if shiro.hasPermission("lamp:lamp:delete")>
+            <a class="btn btn-primary" @click="del"><i class="fa fa-trash-o"></i>&nbsp;删除</a>
+			</#if>
+        </div>
+        <table id="jqGrid"></table>
+        <div id="jqGridPager"></div>
+    </div>
+
+    <div v-show="!showList" class="panel panel-default">
+        <div class="panel-heading">{{title}}</div>
+        <form class="form-horizontal">
+														                    <!--<div class="form-group">-->
+                        <!--<div class="col-sm-2 control-label">产品名称</div>-->
+                        <!--<div class="col-sm-10">-->
+                            <!--<input type="text" class="form-control" v-model="lamp.num" placeholder="产品名称"/>-->
+                        <!--</div>-->
+                    <!--</div>-->
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">产品编号</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="lamp.name" placeholder="产品编号"/>
+                        </div>
+                    </div>
+											                    <!--<div class="form-group">-->
+                        <!--<div class="col-sm-2 control-label">产品类别</div>-->
+                        <!--<div class="col-sm-10">-->
+                            <!--<input type="text" class="form-control" v-model="lamp.categoryid" placeholder="产品类别"/>-->
+                        <!--</div>-->
+                    <!--</div>-->
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">亮灭状态</div>
+                        <div class="col-sm-10">
+                            <!--<input type="text" class="form-control" v-model="lamp.status" placeholder="亮灭状态，0是灭，1是亮，默认0"/>-->
+                            <select v-model="lamp.status" >
+                                <option value="0">灭灯</option>
+                                <option value="1">亮灯</option>
+                            </select>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">亮度</div>
+                        <div class="col-sm-10">
+                            <!--<input type="text" class="form-control" v-model="lamp.brightness" placeholder="亮度：0~100"/>-->
+                            <select v-model="lamp.brightness" >
+                                <option value="0">0%</option>
+                                <option value="25">25%</option>
+                                <option value="50">50%</option>
+                                <option value="75">75%</option>
+                                <option value="100">100%</option>
+
+                            </select>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">设备是否在线</div>
+                        <div class="col-sm-10">
+                            <!--<input type="text" class="form-control" v-model="lamp.online" placeholder="设备是否在线，0离线，1在线，默认1"/>-->
+                            <select v-model="lamp.online" >
+                                <option value="0">离线</option>
+                                <option value="1">在线</option>
+                            </select>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">设备是否损坏</div>
+                        <div class="col-sm-10">
+                            <!--<input type="text" class="form-control" v-model="lamp.damage" placeholder="设备是否损坏，0没有，1损坏，默认0"/>-->
+                            <select v-model="lamp.damage" >
+                                <option value="0">良好</option>
+                                <option value="1">损坏</option>
+                            </select>
+                        </div>
+                    </div>
+											                    <div class="form-group">
+                        <div class="col-sm-2 control-label">备注</div>
+                        <div class="col-sm-10">
+                            <input type="text" class="form-control" v-model="lamp.remarks" placeholder="备注"/>
+                        </div>
+                    </div>
+											                    <!--<div class="form-group">-->
+                        <!--<div class="col-sm-2 control-label">创建时间</div>-->
+                        <!--<div class="col-sm-10">-->
+                            <!--<input type="text" class="form-control" v-model="lamp.createtime" placeholder="创建时间"/>-->
+                        <!--</div>-->
+                    <!--</div>-->
+							            <div class="form-group">
+                <div class="col-sm-2 control-label"></div>
+                <input type="button" class="btn btn-primary" id="btnSaveOrUpdate" data-loading-text="保存中..." @click="saveOrUpdate" value="确定"/>
+                &nbsp;&nbsp;<input type="button" class="btn btn-warning" @click="reload" value="返回"/>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="${request.contextPath}/statics/js/modules/lamp/lamp.js?_${.now?long}"></script>
+</body>
+</html>

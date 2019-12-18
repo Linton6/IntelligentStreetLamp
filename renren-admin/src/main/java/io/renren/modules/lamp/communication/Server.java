@@ -19,10 +19,13 @@ import java.util.Iterator;
 
 @Service("server")
 public class Server {
-    String data = "234234234234";
+    String data = "the initial data!";
     public void setData(String str) {
         this.data = str;
+    }
 
+    public String getData() {
+        return data;
     }
 
     public static void main(String[] args) {
@@ -102,30 +105,27 @@ public class Server {
                         buffer.clear();
                     }
 
-                    // send the information to client
-
-
-
-//                    int length = 0;
-//                    while ((length = socketChannel.write(src)) != 0) {
-//                        /*
-//                         * 注意，这里不需要clear，将缓冲中的数据写入到通道中后 第二次接着上一次的顺序往下读
-//                         */
-//                        System.out.println("写入长度:" + length);
-//                    }
                 } else if (key.isWritable()) { //测试此键的通道是否已准备好写入。
 
                     SocketChannel socketChannel = (SocketChannel) key.channel();
                     ByteBuffer buffer = ByteBuffer.allocate(1024);
-                    ByteBuffer src = Charset.forName("utf8").encode(data);
-
-                    if (src != null) {
-                        int length = 0;
-                        length = socketChannel.write(src);  // 放进buffer里吧
-                        System.out.println(src);
-                        src = null;
+                    ByteBuffer src = null;
+                    if (data != null){
+                         src = Charset.forName("utf8").encode(getData());
+                        socketChannel.write(src);
+                        System.out.println(data);
+//                        src = null;
                         data = null;
                     }
+
+
+//                    if (src != null) {
+//                        int length = 0;
+//                        length = socketChannel.write(src);  // 放进buffer里吧
+//                        System.out.println(data);
+//                        src = null;
+//                        data = null;
+//                    }
 
 
 

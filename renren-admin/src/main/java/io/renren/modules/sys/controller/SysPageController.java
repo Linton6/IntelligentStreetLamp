@@ -27,12 +27,12 @@ public class SysPageController {
 
 	@RequestMapping(value = {"/", "index.html"})
 	public String index(){
-		return "index2";
+		return "index";
 	}
 
 	@RequestMapping("index1.html")
 	public String index1(){
-		return "index";
+		return "index1";
 	}
 
 	@RequestMapping("login.html")
