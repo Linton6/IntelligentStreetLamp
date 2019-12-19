@@ -4,8 +4,8 @@ $(function () {
         datatype: "json",
         colModel: [			
 			{ label: 'id', name: 'id', index: 'id', width: 50, key: true },
-			{ label: '编号', name: 'name', index: 'name', width: 80 },
-			// { label: '产品名称', name: 'num', index: 'num', width: 80 },
+			{ label: '名称', name: 'name', index: 'name', width: 80 },
+			{ label: '编号', name: 'num', index: 'num', width: 80 },
 			// { label: '产品类别', name: 'categoryid', index: 'categoryId', width: 80 },
 			{ label: '亮灭状态', name: 'status', index: 'status', width: 80 , formatter:function(value) {
 			    if (value === 0) {
@@ -17,19 +17,19 @@ $(function () {
             }, 		// ，0是灭，1是亮，默认0
 			{ label: '亮度', name: 'brightness', index: 'brightness', width: 80 }, 	//，默认50
 			{ label: '设备是否在线', name: 'online', index: 'online', width: 80 , formatter:function(value) {
-			    if (value === 0) {
+			    if (value === 1) {
 			        return  '<span>离线</span>'
                 } else {
 			        return '<span>在线</span>'
                 }
-                } }, 			//，0离线，1在线，默认1
-			{ label: '设备是否损坏', name: 'damage', index: 'damage', width: 80 , formatter:function(value) {
-			    if (value === 0) {
-			        return '<span>良好</span>'
-                } else {
-			        return '<span>损坏</span>'
-                }
-                }}, 	  //，0没有，1损坏，默认0
+                } }, 			//，1离线，0在线，默认1
+			// { label: '设备是否损坏', name: 'damage', index: 'damage', width: 80 , formatter:function(value) {
+			//     if (value === 0) {
+			//         return '<span>良好</span>'
+            //     } else {
+			//         return '<span>损坏</span>'
+            //     }
+            //     }}, 	  //，0没有，1损坏，默认0
 			{ label: '备注', name: 'remarks', index: 'remarks', width: 80 }, 			
 			{ label: '创建时间', name: 'createtime', index: 'createtime', width: 80 }			
         ],

@@ -69,6 +69,8 @@ public class LampController {
         return R.ok();
     }
 
+
+
     /**
      * 修改 / 向lamp发送控制信号，通过NIO
      */
@@ -76,11 +78,17 @@ public class LampController {
     @RequiresPermissions("lamp:lamp:update")
     public R update(@RequestBody LampEntity lamp){
         ValidatorUtils.validateEntity(lamp);
+
+        if (lamp.getBrightness() == 0) {
+            lamp.setStatus(0);
+        }
+        if (lamp.getStatus() == 0) {  // 调整亮度前，必须打开灯
+            lamp.setBrightness(0);
+        }
         lampService.updateById(lamp);
         // 获取需要向NIO传送的有效数据
         String data = lampService.getData(lamp);
         server.setData(data);
-        
         return R.ok();
     }
 
@@ -91,8 +99,17 @@ public class LampController {
     @RequiresPermissions("lamp:lamp:delete")
     public R delete(@RequestBody Integer[] ids){
         lampService.removeByIds(Arrays.asList(ids));
-
         return R.ok();
+    }
+    /**
+     * 批处理功能
+     */
+    @RequestMapping("/batch")
+    public R batch(@RequestBody Integer[] ids) {
+        lampService.batchByIds(Arrays.asList(ids));// 数据库
+        lampService.bacthLG220(Arrays.asList(ids), server);// 集中器
+
+        return R.ok() ;
     }
 
     /**

@@ -32,9 +32,9 @@
                         <!--</div>-->
                     <!--</div>-->
 											                    <div class="form-group">
-                        <div class="col-sm-2 control-label">产品编号</div>
+                        <div class="col-sm-2 control-label">名称</div>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" v-model="lamp.name" placeholder="产品编号"/>
+                            <input type="text" class="form-control" v-model="lamp.name" placeholder="名称"/>
                         </div>
                     </div>
 											                    <!--<div class="form-group">-->
@@ -59,34 +59,34 @@
                             <!--<input type="text" class="form-control" v-model="lamp.brightness" placeholder="亮度：0~100"/>-->
                             <select v-model="lamp.brightness" >
                                 <option value="0">0%</option>
-                                <option value="25">25%</option>
-                                <option value="50">50%</option>
-                                <option value="75">75%</option>
+                                <option value="20">20%</option>
+                                <option value="40">40%</option>
+                                <option value="60">60%</option>
+                                <option value="80">80%</option>
                                 <option value="100">100%</option>
-
                             </select>
                         </div>
                     </div>
 											                    <div class="form-group">
                         <div class="col-sm-2 control-label">设备是否在线</div>
                         <div class="col-sm-10">
-                            <!--<input type="text" class="form-control" v-model="lamp.online" placeholder="设备是否在线，0离线，1在线，默认1"/>-->
-                            <select v-model="lamp.online" >
-                                <option value="0">离线</option>
-                                <option value="1">在线</option>
+                            <!--<input type="text" class="form-control" disabled="disabled" v-model="lamp.online" placeholder=""/>-->
+                            <select v-model="lamp.online" disabled="disabled">
+                                <option value="0">在线</option>
+                                <option value="1">离线</option>
                             </select>
                         </div>
                     </div>
-											                    <div class="form-group">
-                        <div class="col-sm-2 control-label">设备是否损坏</div>
-                        <div class="col-sm-10">
-                            <!--<input type="text" class="form-control" v-model="lamp.damage" placeholder="设备是否损坏，0没有，1损坏，默认0"/>-->
-                            <select v-model="lamp.damage" >
-                                <option value="0">良好</option>
-                                <option value="1">损坏</option>
-                            </select>
-                        </div>
-                    </div>
+											                    <!--<div class="form-group">-->
+                        <!--<div class="col-sm-2 control-label">设备是否损坏</div>-->
+                        <!--<div class="col-sm-10">-->
+                            <!--&lt;!&ndash;<input type="text" class="form-control" v-model="lamp.damage" placeholder="设备是否损坏，0没有，1损坏，默认0"/>&ndash;&gt;-->
+                            <!--<select v-model="lamp.damage" >-->
+                                <!--<option value="0">良好</option>-->
+                                <!--<option value="1">损坏</option>-->
+                            <!--</select>-->
+                        <!--</div>-->
+                    <!--</div>-->
 											                    <div class="form-group">
                         <div class="col-sm-2 control-label">备注</div>
                         <div class="col-sm-10">
