@@ -6,6 +6,7 @@ import io.renren.modules.lamp.communication.Server;
 import io.renren.modules.lamp.entity.LampEntity;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -33,7 +34,9 @@ public interface LampService extends IService<LampEntity> {
     // 判断当前num是否存在
     LampEntity judgeNum(String num);
 
-    // 当前num不存在，新增
+    // 获取tb_lamp表所有的id列表
+    ArrayList<Integer>  getLampIds();
+
 }
 
 

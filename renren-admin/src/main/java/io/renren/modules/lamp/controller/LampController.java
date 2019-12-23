@@ -105,7 +105,7 @@ public class LampController {
      * 批处理功能
      */
     @RequestMapping("/batch")
-    public R batch(@RequestBody Integer[] ids) {
+    public R batch(@RequestBody Integer[] ids) {  // ids中最后一位是亮度
         lampService.batchByIds(Arrays.asList(ids));// 数据库
         lampService.bacthLG220(Arrays.asList(ids), server);// 集中器
 

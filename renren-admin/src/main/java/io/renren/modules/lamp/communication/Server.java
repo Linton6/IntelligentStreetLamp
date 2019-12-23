@@ -137,7 +137,7 @@ public class Server  implements CommandLineRunner{
 
                             // 判断是否存在，不存在新增实体 路灯记录
                             lamp = lampService.judgeNum(nodeID);
-                            if (lamp == null) {
+                            if (lamp == null) {    // 加入找到两个数据就炸了
                                 lamp = new LampEntity();
                                 lamp.setNum(nodeID);
                                 lamp.setName("lamp");

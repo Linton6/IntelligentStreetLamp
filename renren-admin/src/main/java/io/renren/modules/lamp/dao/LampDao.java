@@ -25,5 +25,7 @@ public interface LampDao extends BaseMapper<LampEntity> {
     // 批处理亮度 > 0
     void updateBatch1(@Param("ids")ArrayList<Integer> list, @Param("brightness")int brightness);
 
-    LampEntity judgeNum(@Param("num") String num);
+    LampEntity judgeNum(@Param("Snum") String Snum);
+
+    ArrayList<Integer> getLampIds();
 }

@@ -89,4 +89,9 @@ public class LampServiceImpl extends ServiceImpl<LampDao, LampEntity> implements
     public LampEntity judgeNum(String num) {
         return baseMapper.judgeNum( num);
     }
+
+    @Override
+    public ArrayList<Integer> getLampIds() {
+        return baseMapper.getLampIds();
+    }
 }

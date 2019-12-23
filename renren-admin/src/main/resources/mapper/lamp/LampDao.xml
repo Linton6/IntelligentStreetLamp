@@ -37,8 +37,12 @@
 
     <select id="judgeNum" resultType="io.renren.modules.lamp.entity.LampEntity" parameterType="string">
         SELECT * FROM `tb_lamp`
-        WHERE num like  ${num} -- CONCAT("'",#{num},"'") 如何在#{}中加入引号
+        WHERE num =  #{Snum}
 
+    </select>
+
+    <select id="getLampIds" resultType="java.lang.Integer">
+        SELECT id FROM `tb_lamp`
     </select>
 
 
