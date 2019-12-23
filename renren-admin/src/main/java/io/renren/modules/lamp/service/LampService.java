@@ -29,6 +29,11 @@ public interface LampService extends IService<LampEntity> {
     void batchByIds(List<Integer> asList);
 
     void bacthLG220(List<Integer> asList, Server server);
+
+    // 判断当前num是否存在
+    LampEntity judgeNum(String num);
+
+    // 当前num不存在，新增
 }
 
 

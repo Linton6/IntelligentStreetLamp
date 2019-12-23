@@ -39,7 +39,7 @@ public class LampController {
      * 列表
      */
     @RequestMapping("/list")
-    @RequiresPermissions("lamp:lamp:list")
+//    @RequiresPermissions("lamp:lamp:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = lampService.queryPage(params);
 
@@ -75,7 +75,7 @@ public class LampController {
      * 修改 / 向lamp发送控制信号，通过NIO
      */
     @RequestMapping("/update")
-    @RequiresPermissions("lamp:lamp:update")
+//    @RequiresPermissions("lamp:lamp:update")
     public R update(@RequestBody LampEntity lamp){
         ValidatorUtils.validateEntity(lamp);
 

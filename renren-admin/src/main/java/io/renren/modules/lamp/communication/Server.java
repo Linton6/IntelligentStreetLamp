@@ -5,11 +5,13 @@ package io.renren.modules.lamp.communication;
  * @
  */
 
+import io.renren.modules.lamp.entity.LampEntity;
 import io.renren.modules.lamp.service.LampService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
+import javax.xml.crypto.Data;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.nio.Buffer;
@@ -19,6 +21,7 @@ import java.nio.channels.Selector;
 import java.nio.channels.ServerSocketChannel;
 import java.nio.channels.SocketChannel;
 import java.nio.charset.Charset;
+import java.util.Date;
 import java.util.Iterator;
 
 @Service("server")
@@ -88,11 +91,18 @@ public class Server  implements CommandLineRunner{
         ssChannel.register(selector, SelectionKey.OP_ACCEPT);  //每次在一个通道注册一个选择器时，创建一个选择键。??
         // OP_ACCEPT 套接字接受操作的操作设置位。
 
+        LampEntity lamp;
+
+        Date date= new Date();
 
         // 轮询式的获取选择器上已经准备就绪的事件
         while (selector.select() > 0) { // select() 返回的值表示
             Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
             while (iterator.hasNext()) {
+                /** 定时安排任务 **/
+//                if ()
+
+
                 SelectionKey key = iterator.next();
                 // 很重要！！！删除已选择的 key，以防重复处理
                 iterator.remove();
@@ -123,7 +133,20 @@ public class Server  implements CommandLineRunner{
                         String str = BinaryToHexString(bytes);
 
                         if (str.length() >= 68) {
-                            String nodeID = str.substring(18, 29).replace(" ", "");
+                            String nodeID = str.substring(18, 29).replace(" ", "");// num
+
+                            // 判断是否存在，不存在新增实体 路灯记录
+                            lamp = lampService.judgeNum(nodeID);
+                            if (lamp == null) {
+                                lamp = new LampEntity();
+                                lamp.setNum(nodeID);
+                                lamp.setName("lamp");
+                                lamp.setBrightness(0);
+                                lamp.setStatus(0);
+                                lamp.setOnline(1);
+                                lamp.setDamage(0);
+                                lampService.save(lamp);
+                            }
                             String online = str.substring(66, 68);
                             // 00 在线  01 掉线
                             if (online.equals("00")) {
