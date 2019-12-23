@@ -40,7 +40,7 @@ public class ShiroConfig {
     @ConditionalOnProperty(prefix = "renren", name = "cluster", havingValue = "false")
     public DefaultWebSessionManager sessionManager(@Value("${renren.globalSessionTimeout:3600}") long globalSessionTimeout){
         DefaultWebSessionManager sessionManager = new DefaultWebSessionManager();
-        sessionManager.setSessionValidationSchedulerEnabled(true);
+        sessionManager.setSessionValidationSchedulerEnabled(false);
         sessionManager.setSessionIdUrlRewritingEnabled(false);
         sessionManager.setSessionValidationInterval(globalSessionTimeout * 1000);
         sessionManager.setGlobalSessionTimeout(globalSessionTimeout * 1000);
@@ -72,23 +72,23 @@ public class ShiroConfig {
     public ShiroFilterFactoryBean shiroFilter(SecurityManager securityManager) {
         ShiroFilterFactoryBean shiroFilter = new ShiroFilterFactoryBean();
         shiroFilter.setSecurityManager(securityManager);
-        shiroFilter.setLoginUrl("/login.html");
-        shiroFilter.setUnauthorizedUrl("/");
-
-        Map<String, String> filterMap = new LinkedHashMap<>();
-        filterMap.put("/swagger/**", "anon");
-        filterMap.put("/v2/api-docs", "anon");
-        filterMap.put("/swagger-ui.html", "anon");
-        filterMap.put("/webjars/**", "anon");
-        filterMap.put("/swagger-resources/**", "anon");
-
-        filterMap.put("/statics/**", "anon");
-        filterMap.put("/login.html", "anon");
-        filterMap.put("/sys/login", "anon");
-        filterMap.put("/favicon.ico", "anon");
-        filterMap.put("/captcha.jpg", "anon");
-        filterMap.put("/**", "authc");
-        shiroFilter.setFilterChainDefinitionMap(filterMap);
+//        shiroFilter.setLoginUrl("/login.html");
+//        shiroFilter.setUnauthorizedUrl("/");
+//
+//        Map<String, String> filterMap = new LinkedHashMap<>();
+//        filterMap.put("/swagger/**", "anon");
+//        filterMap.put("/v2/api-docs", "anon");
+//        filterMap.put("/swagger-ui.html", "anon");
+//        filterMap.put("/webjars/**", "anon");
+//        filterMap.put("/swagger-resources/**", "anon");
+//
+//        filterMap.put("/statics/**", "anon");
+//        filterMap.put("/login.html", "anon");
+//        filterMap.put("/sys/login", "anon");
+//        filterMap.put("/favicon.ico", "anon");
+//        filterMap.put("/captcha.jpg", "anon");
+//        filterMap.put("/**", "authc");
+//        shiroFilter.setFilterChainDefinitionMap(filterMap);
 
         return shiroFilter;
     }
