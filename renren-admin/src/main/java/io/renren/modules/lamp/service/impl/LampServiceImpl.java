@@ -80,6 +80,11 @@ public class LampServiceImpl extends ServiceImpl<LampDao, LampEntity> implements
         for (int i = 0; i < len -1; i++) {
             lamp = baseMapper.selectById(asList.get(i));
             String data  = getData(lamp);
+            try {
+                Thread.currentThread().sleep(50);//毫秒
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
             server.setData(data);
         }
 

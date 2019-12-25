@@ -166,7 +166,7 @@ public class Server  implements CommandLineRunner{
 
                     SocketChannel socketChannel = (SocketChannel) key.channel();
 //                    ByteBuffer buffer = ByteBuffer.allocate(1024);
-                    ByteBuffer src = null;
+                    ByteBuffer src = ByteBuffer.allocate(20);
                     if (data != null){
 //                      src = Charset.forName("utf8").encode(getData());
                         if (data.length() == 20) {
