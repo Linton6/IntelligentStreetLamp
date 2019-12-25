@@ -99,9 +99,6 @@ public class Server  implements CommandLineRunner{
         while (selector.select() > 0) { // select() 返回的值表示
             Iterator<SelectionKey> iterator = selector.selectedKeys().iterator();
             while (iterator.hasNext()) {
-                /** 定时安排任务 **/
-//                if ()
-
 
                 SelectionKey key = iterator.next();
                 // 很重要！！！删除已选择的 key，以防重复处理

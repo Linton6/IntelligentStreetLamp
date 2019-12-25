@@ -23,13 +23,6 @@ $(function () {
 			        return '<span>在线</span>'
                 }
                 } }, 			//，1离线，0在线，默认1
-			// { label: '设备是否损坏', name: 'damage', index: 'damage', width: 80 , formatter:function(value) {
-			//     if (value === 0) {
-			//         return '<span>良好</span>'
-            //     } else {
-			//         return '<span>损坏</span>'
-            //     }
-            //     }}, 	  //，0没有，1损坏，默认0
 			{ label: '备注', name: 'remarks', index: 'remarks', width: 80 }, 			
 			{ label: '创建时间', name: 'createtime', index: 'createtime', width: 80 }			
         ],
@@ -65,7 +58,9 @@ var vm = new Vue({
 	data:{
 		showList: true,
 		title: null,
-		lamp: {}
+		lamp: {
+            brightness:80
+        }
 	},
 	methods: {
 		query: function () {
@@ -138,6 +133,38 @@ var vm = new Vue({
              }, function(){
              });
 		},
+        batch: function(event) {
+		    console.log(vm.lamp.brightness)
+		    var ids = getSelectedRows();
+		    if (ids == null) {
+		        return ;
+            }
+
+            ids.push(vm.lamp.brightness);
+            var lock = false;
+		    layer.confirm("确定批处理选中的记录？", {
+		        btn: ['确定', '取消']
+            }, function () {
+                if (!lock) {
+                    lock = true;
+                    $.ajax({
+                        type: "POST",
+                        url: baseURL + "lamp/lamp/batch",
+                        contentType: "application/json",
+                        data: JSON.stringify(ids),
+                        success: function (r) {
+                            if (r.code == 0) {
+                                layer.msg("操作成功", {icon: 1});
+                                $("#jqGrid").trigger("reloadGrid"); // ? ? ?
+                            }  else {
+                                layer.alert(r.msg);
+                            }
+                        }
+                    });
+                }
+            },function () {
+            });
+        },
 		getInfo: function(id){
 			$.get(baseURL + "lamp/lamp/info/"+id, function(r){
                 vm.lamp = r.lamp;
