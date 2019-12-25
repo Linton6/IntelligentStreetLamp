@@ -12,18 +12,14 @@ import io.renren.modules.lamp.communication.Server;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.scheduling.annotation.EnableScheduling;
 
 
 @SpringBootApplication
+@EnableScheduling
 public class AdminApplication {
-//	@Autowired
-//	static Server server;
-
 	public static void main(String[] args) {
 		SpringApplication.run(AdminApplication.class, args);
-//		System.out.println("1234567890");
-//		Server server = new Server();
-//		server.handler();
 	}
 
 }

@@ -21,17 +21,13 @@
         update tb_lamp set `online` = #{online} WHERE num = #{num}
     </update>
 
-    <update id="updateBatch0" >
-      UPDATE tb_lamp SET brightness = 0  WHERE id in
-        <foreach collection="ids" item="item" open="(" close=")" separator=",">#{item}</foreach>;
-      UPDATE tb_lamp SET `status` = 0 WHERE id in
+    <update id="updateBatch0" parameterType="collection" >
+      UPDATE tb_lamp SET brightness = 0 ,`status` = 0  WHERE id in
         <foreach collection="ids" item="item" open="(" close=")" separator=",">#{item}</foreach>;
     </update>
 
-    <update id="updateBatch1">
-        UPDATE tb_lamp SET brightness = #{brightness}  WHERE id in
-        <foreach collection="ids" item="item" open="(" close=")" separator=",">#{item}</foreach>;
-        UPDATE tb_lamp SET `status` = 1 WHERE id in
+    <update id="updateBatch1" parameterType="int">
+        UPDATE tb_lamp SET brightness = #{brightness},`status` = 1  WHERE id in
         <foreach collection="ids" item="item" open="(" close=")" separator=",">#{item}</foreach>;
     </update>
 

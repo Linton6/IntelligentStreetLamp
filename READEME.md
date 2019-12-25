@@ -1,4 +1,4 @@
-## 智慧路灯
+## 智慧路灯后台系统
 
 数据库文件：
 renren-admin/db/streetlamp.sql
