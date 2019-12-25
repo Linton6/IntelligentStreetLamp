@@ -11,7 +11,7 @@ import java.util.Date;
 
 /**
  * @Date 2019/12/24 19:32
- * @
+ * @ 固定时间执行时定时任务，硬代码
  */
 
 @Component
@@ -56,13 +56,13 @@ public class ScheduledTasks {
 
     String second = "0 0 "+getSecondTime()+" * * ?";
 
-    @Scheduled(cron="0 35 12 * * ?") // 可恶，corn的参数只能是常量
+//    @Scheduled(cron="0 35 12 * * ?") // 可恶，corn的参数只能是常量
     public void firstCommand() {
         System.out.println("现在时间：" + dateFormat.format(new Date()));
         command(100);
     }
 
-    @Scheduled(cron="0 0 6 * * ?")
+//    @Scheduled(cron="0 0 6 * * ?")
     public void secondCommand() {
         System.out.println("现在时间：" + dateFormat.format(new Date()));
         command(0);

@@ -4,9 +4,14 @@ $(function () {
         datatype: "json",
         colModel: [			
 			{ label: '任务ID', name: 'jobId', width: 60, key: true },
-			{ label: 'bean名称', name: 'beanName', width: 100 },
-			{ label: '参数', name: 'params', width: 100 },
-			{ label: 'cron表达式 ', name: 'cronExpression', width: 100 },
+			// { label: 'bean名称', name: 'beanName', width: 100 },
+			{ label: '亮度', name: 'params', width: 100 },
+			{ label: '时间点 ', name: 'cronExpression', width: 100,formatter:function(value) {
+				var str = "";
+				str = value.slice(5,7);
+                 return str + "点"
+
+                } },
 			{ label: '备注 ', name: 'remark', width: 100 },
 			{ label: '状态', name: 'status', width: 60, formatter: function(value, options, row){
 				return value === 0 ? 
@@ -49,7 +54,9 @@ var vm = new Vue({
 		},
 		showList: true,
 		title: null,
-		schedule: {}
+		schedule: {
+            beanName:"timingTask"
+		}
 	},
 	methods: {
 		query: function () {

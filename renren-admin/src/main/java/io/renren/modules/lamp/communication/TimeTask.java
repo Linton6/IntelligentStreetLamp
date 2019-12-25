@@ -8,7 +8,7 @@ import java.util.*;
 
 /**
  * @Date 2019/12/23 10:04
- * @
+ * @ Java原生定时任务Timer+TimerTask，远古方法，十分不推荐
  */
 @Service("timeTask")
 public class TimeTask {

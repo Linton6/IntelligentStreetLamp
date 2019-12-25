@@ -42,22 +42,59 @@
 	<div v-show="!showList" class="panel panel-default">
 		<div class="panel-heading">{{title}}</div>
 		<form class="form-horizontal">
-			<div class="form-group">
-			   	<div class="col-sm-2 control-label">bean名称</div>
+			<div class="form-group" >
+			   	<div class="col-sm-2 control-label">定时名称</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="schedule.beanName" placeholder="spring bean名称，如：testTask"/>
+			      <!--<input type="text" class="form-control" v-model="schedule.beanName" placeholder="spring bean名称，如：testTask"/>-->
+					<select v-model="schedule.beanName"  >
+						<option value="timingTask" >timingTask</option>
+					</select>
 			    </div>
 			</div>
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">参数</div>
+			   	<div class="col-sm-2 control-label">亮度</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="schedule.params" placeholder="参数"/>
+			      <!--<input type="text" class="form-control" v-model="schedule.params" placeholder="亮度"/>-->
+					<select v-model="schedule.params" >
+						<option value="0">0%</option>
+						<option value="20">20%</option>
+						<option value="40">40%</option>
+						<option value="60">60%</option>
+						<option value="80">80%</option>
+						<option value="100">100%</option>
+					</select>
 			    </div>
 			</div>
 			<div class="form-group">
-			   	<div class="col-sm-2 control-label">cron表达式</div>
+			   	<div class="col-sm-2 control-label">时间点</div>
 			   	<div class="col-sm-10">
-			      <input type="text" class="form-control" v-model="schedule.cronExpression" placeholder="如：0 0 12 * * ?"/>
+			      <!--<input type="text" class="form-control" v-model="schedule.cronExpression" placeholder="如：0 0 12 * * ?"/>-->
+					<select v-model="schedule.cronExpression" >
+						<option value="0 0 0 * * ?">0点</option>
+						<option value="0 0 1 * * ?">1点</option>
+						<option value="0 0 2 * * ?">2点</option>
+						<option value="0 0 3 * * ?">3点</option>
+						<option value="0 0 4 * * ?">4点</option>
+						<option value="0 0 5 * * ?">5点</option>
+						<option value="0 0 6 * * ?">6点</option>
+						<option value="0 0 7 * * ?">7点</option>
+						<option value="0 0 8 * * ?">8点</option>
+						<option value="0 0 9 * * ?">9点</option>
+						<option value="0 0 10 * * ?">10点</option>
+						<option value="0 0 11 * * ?">11点</option>
+						<option value="0 0 12 * * ?">12点</option>
+						<option value="0 0 13 * * ?">13点</option>
+						<option value="0 35 14 * * ?">14点</option>
+						<option value="0 0 15 * * ?">15点</option>
+						<option value="0 0 16 * * ?">16点</option>
+						<option value="0 0 17 * * ?">17点</option>
+						<option value="0 0 18 * * ?">18点</option>
+						<option value="0 0 19 * * ?">19点</option>
+						<option value="0 0 20 * * ?">20点</option>
+						<option value="0 0 21 * * ?">21点</option>
+						<option value="0 0 22 * * ?">22点</option>
+						<option value="0 0 23 * * ?">23点</option>
+					</select>
 			    </div>
 			</div>
 			<div class="form-group">
