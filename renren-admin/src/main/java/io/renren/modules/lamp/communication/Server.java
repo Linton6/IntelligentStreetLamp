@@ -94,6 +94,7 @@ public class Server  implements CommandLineRunner{
         LampEntity lamp;
 
         Date date= new Date();
+        ByteBuffer src = ByteBuffer.allocate(20);
 
         // 轮询式的获取选择器上已经准备就绪的事件
         while (selector.select() > 0) { // select() 返回的值表示
@@ -166,7 +167,7 @@ public class Server  implements CommandLineRunner{
 
                     SocketChannel socketChannel = (SocketChannel) key.channel();
 //                    ByteBuffer buffer = ByteBuffer.allocate(1024);
-                    ByteBuffer src = ByteBuffer.allocate(20);
+
                     if (data != null){
 //                      src = Charset.forName("utf8").encode(getData());
                         if (data.length() == 20) {

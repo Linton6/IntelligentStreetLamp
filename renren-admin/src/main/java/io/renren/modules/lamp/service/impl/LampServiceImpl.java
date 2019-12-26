@@ -81,7 +81,7 @@ public class LampServiceImpl extends ServiceImpl<LampDao, LampEntity> implements
             lamp = baseMapper.selectById(asList.get(i));
             String data  = getData(lamp);
             try {
-                Thread.currentThread().sleep(50);//毫秒
+                Thread.currentThread().sleep(35);//毫秒
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
