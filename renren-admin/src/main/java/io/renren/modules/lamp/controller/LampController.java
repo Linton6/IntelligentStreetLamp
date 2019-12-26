@@ -39,7 +39,6 @@ public class LampController {
      * 列表
      */
     @RequestMapping("/list")
-//    @RequiresPermissions("lamp:lamp:list")
     public R list(@RequestParam Map<String, Object> params){
         PageUtils page = lampService.queryPage(params);
 
@@ -51,7 +50,6 @@ public class LampController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-//    @RequiresPermissions("lamp:lamp:info")
     public R info(@PathVariable("id") Integer id){
         LampEntity lamp = lampService.getById(id);
 
@@ -62,7 +60,6 @@ public class LampController {
      * 保存
      */
     @RequestMapping("/save")
-//    @RequiresPermissions("lamp:lamp:save")
     public R save(@RequestBody LampEntity lamp){
         lampService.save(lamp);
 
@@ -75,7 +72,6 @@ public class LampController {
      * 修改 / 向lamp发送控制信号，通过NIO
      */
     @RequestMapping("/update")
-//    @RequiresPermissions("lamp:lamp:update")
     public R update(@RequestBody LampEntity lamp){
         ValidatorUtils.validateEntity(lamp);
 
@@ -96,7 +92,6 @@ public class LampController {
      * 删除
      */
     @RequestMapping("/delete")
-//    @RequiresPermissions("lamp:lamp:delete")
     public R delete(@RequestBody Integer[] ids){
         lampService.removeByIds(Arrays.asList(ids));
         return R.ok();

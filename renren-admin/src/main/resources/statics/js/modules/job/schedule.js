@@ -8,16 +8,16 @@ $(function () {
 			{ label: '亮度', name: 'params', width: 100 },
 			{ label: '时间点 ', name: 'cronExpression', width: 100,formatter:function(value) {
 				var str = "";
-				str = value.slice(5,7);
+				str = value.slice(4,6);
                  return str + "点"
 
                 } },
 			{ label: '备注 ', name: 'remark', width: 100 },
-			{ label: '状态', name: 'status', width: 60, formatter: function(value, options, row){
-				return value === 0 ? 
-					'<span class="label label-success">正常</span>' : 
-					'<span class="label label-danger">暂停</span>';
-			}}
+			// { label: '状态', name: 'status', width: 60, formatter: function(value, options, row){
+			// 	return value === 0 ?
+			// 		'<span class="label label-success">正常</span>' :
+			// 		'<span class="label label-danger">暂停</span>';
+			// }}
         ],
 		viewrecords: true,
         height: 385,
