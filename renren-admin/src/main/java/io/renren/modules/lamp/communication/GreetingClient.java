@@ -2,7 +2,7 @@ package io.renren.modules.lamp.communication;
 
 /**
  * @Date 2019/12/17 16:06
- * @
+ * @废弃类
  *  Remember the inputStream/outputStream need to be wrapped by DataInputStream/DataOutputStream,
  *  then the data could be in.readUTF()/out.writeUTF()
  */

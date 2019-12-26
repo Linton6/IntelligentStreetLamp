@@ -2,7 +2,7 @@ package io.renren.modules.lamp.communication;
 
 /**
  * @Date 2019/12/17 16:07
- * @
+ * @废弃类
  */
 
 import java.net.*;

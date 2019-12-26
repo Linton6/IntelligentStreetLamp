@@ -1,6 +1,6 @@
 $(function () {
     $("#jqGrid").jqGrid({
-        url: baseURL + 'lamp/lamp/list',
+        url: baseURL + 'lamp/list',
         datatype: "json",
         colModel: [			
 			{ label: 'id', name: 'id', index: 'id', width: 50, key: true },
@@ -83,7 +83,7 @@ var vm = new Vue({
 		},
 		saveOrUpdate: function (event) {
 		    $('#btnSaveOrUpdate').button('loading').delay(1000).queue(function() {
-                var url = vm.lamp.id == null ? "lamp/lamp/save" : "lamp/lamp/update";
+                var url = vm.lamp.id == null ? "lamp/save" : "lamp/update";
                 $.ajax({
                     type: "POST",
                     url: baseURL + url,
@@ -117,7 +117,7 @@ var vm = new Vue({
                     lock = true;
 		            $.ajax({
                         type: "POST",
-                        url: baseURL + "lamp/lamp/delete",
+                        url: baseURL + "lamp/delete",
                         contentType: "application/json",
                         data: JSON.stringify(ids),
                         success: function(r){
@@ -149,7 +149,7 @@ var vm = new Vue({
                     lock = true;
                     $.ajax({
                         type: "POST",
-                        url: baseURL + "lamp/lamp/batch",
+                        url: baseURL + "lamp/batch",
                         contentType: "application/json",
                         data: JSON.stringify(ids),
                         success: function (r) {
@@ -166,7 +166,7 @@ var vm = new Vue({
             });
         },
 		getInfo: function(id){
-			$.get(baseURL + "lamp/lamp/info/"+id, function(r){
+			$.get(baseURL + "lamp/info/"+id, function(r){
                 vm.lamp = r.lamp;
             });
 		},

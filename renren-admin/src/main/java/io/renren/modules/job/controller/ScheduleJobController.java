@@ -35,7 +35,7 @@ public class ScheduleJobController {
 	 * 定时任务列表
 	 */
 	@RequestMapping("/list")
-	@RequiresPermissions("sys:schedule:list")
+//	@RequiresPermissions("sys:schedule:list")
 	public R list(@RequestParam Map<String, Object> params){
 		PageUtils page = scheduleJobService.queryPage(params);
 
@@ -58,7 +58,7 @@ public class ScheduleJobController {
 	 */
 	@SysLog("保存定时任务")
 	@RequestMapping("/save")
-	@RequiresPermissions("sys:schedule:save")
+//	@RequiresPermissions("sys:schedule:save")
 	public R save(@RequestBody ScheduleJobEntity scheduleJob){
 		ValidatorUtils.validateEntity(scheduleJob);
 		
@@ -71,7 +71,7 @@ public class ScheduleJobController {
 	 * 修改定时任务
 	 */
 	@SysLog("修改定时任务")
-	@RequestMapping("/update")
+//	@RequestMapping("/update")
 	@RequiresPermissions("sys:schedule:update")
 	public R update(@RequestBody ScheduleJobEntity scheduleJob){
 		ValidatorUtils.validateEntity(scheduleJob);

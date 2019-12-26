@@ -28,7 +28,7 @@ import io.renren.common.utils.R;
  * @date 2019-12-17 15:04:40
  */
 @RestController
-@RequestMapping("lamp/lamp")
+@RequestMapping("lamp")
 public class LampController {
     @Autowired
     private LampService lampService;
@@ -51,7 +51,7 @@ public class LampController {
      * 信息
      */
     @RequestMapping("/info/{id}")
-    @RequiresPermissions("lamp:lamp:info")
+//    @RequiresPermissions("lamp:lamp:info")
     public R info(@PathVariable("id") Integer id){
         LampEntity lamp = lampService.getById(id);
 
@@ -62,7 +62,7 @@ public class LampController {
      * 保存
      */
     @RequestMapping("/save")
-    @RequiresPermissions("lamp:lamp:save")
+//    @RequiresPermissions("lamp:lamp:save")
     public R save(@RequestBody LampEntity lamp){
         lampService.save(lamp);
 
@@ -96,7 +96,7 @@ public class LampController {
      * 删除
      */
     @RequestMapping("/delete")
-    @RequiresPermissions("lamp:lamp:delete")
+//    @RequiresPermissions("lamp:lamp:delete")
     public R delete(@RequestBody Integer[] ids){
         lampService.removeByIds(Arrays.asList(ids));
         return R.ok();

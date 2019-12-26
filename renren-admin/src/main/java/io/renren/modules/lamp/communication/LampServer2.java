@@ -9,7 +9,7 @@ import java.util.HashMap;
 
 /**
  * @Date 2019/12/17 21:24
- * @
+ * @ 废弃类
  */
 
 public class LampServer2 {

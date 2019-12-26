@@ -13,6 +13,7 @@ import java.util.logging.Logger.*;
 /**
  * @Date 2019/12/25 12:52
  * @ 自定义定时任务，软代码
+ * 采用类
  */
 @Component("timingTask")
 public class TimingTask  implements ITask {

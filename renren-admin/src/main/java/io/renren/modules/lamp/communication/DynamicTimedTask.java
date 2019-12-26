@@ -13,6 +13,7 @@ import java.util.logging.Logger;
 /**
  * @Date 2019/12/25 11:35
  * @ 修正SpringBoot Scheduled中corn表达式为常量的问题，使其可以动态改变
+ * 废弃类
  */
 
 @Component

@@ -2,7 +2,7 @@ package io.renren.modules.lamp.communication;
 
 /**
  * @Date 2019/12/17 18:42
- * @
+ * @废弃类
  */
 
 

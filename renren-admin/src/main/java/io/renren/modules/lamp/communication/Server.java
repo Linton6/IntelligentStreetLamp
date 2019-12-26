@@ -45,7 +45,7 @@ public class Server  implements CommandLineRunner{
     }
 
     /**
-     * 存在问题：当连接的设备一个断开了，就会导致服务抛出异常其他的客户端也断开
+     *
      * @return
      */
     public  String handler() {
